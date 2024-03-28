@@ -67,7 +67,7 @@ export function mancalaBoard(flag: i32, seq: Array<i32>, size: i32): Array<i32> 
   for (let i = 8; i <= 13; i++) {
     surplus2 += count[i];
   }
-  if (surplus1 == 0 || surplus2 == 0) { // 游戏结束
+  if (surplus1 == 0 || surplus2 == 0) { // 游戏结束！！需要清空场上的棋子！！
     if (surplus1 == 0) {
       count[14] += surplus2;
     }
@@ -79,6 +79,12 @@ export function mancalaBoard(flag: i32, seq: Array<i32>, size: i32): Array<i32> 
     }
     else {
       dataBit = 200 + count[7] - count[14];
+    }
+    for (let i = 1; i <= 14; i++) {
+      if (i == 7 || i == 14) {
+        continue;
+      }
+      count[i] = 0;
     }
   }
   else {

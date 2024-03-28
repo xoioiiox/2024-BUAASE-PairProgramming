@@ -32,13 +32,17 @@ do {
         operation = op1(1, status);
         op1Time += performance.now() * 1000 - timeStamp;
         operationSequence.push(operation);
+        console.log(operationSequence);
         boardReturn = board(1, operationSequence, operationSequence.length);
+        console.log("1******" + boardReturn);
     } else {
         timeStamp = performance.now() * 1000;
         operation = op2(2, status);
         op2Time += performance.now() * 1000 - timeStamp;
         operationSequence.push(operation);
+        console.log(operationSequence);
         boardReturn = board(2, operationSequence, operationSequence.length);
+        console.log("2******" + boardReturn);
     }
     if (boardReturn[14] == 1) {
         operator = 1;
@@ -82,8 +86,8 @@ do {
         status = boardReturn.slice(0,14);
     } else {
         isEnded = true;
-        op1Result += boardReturn[14] - 200;
-        op2Result -= boardReturn[14] - 200;
+        //op1Result += boardReturn[14] - 200;
+        //op2Result -= boardReturn[14] - 200;
     }
 } while (!isEnded);
  
