@@ -1,4 +1,4 @@
 import assert from "assert";
-import { add } from "../build/debug.js";
-assert.strictEqual(add(1, 2), 3);
+import { mancalaResult } from "../build/debug.js";
+assert.strictEqual(mancalaResult(1, 2), 3);
 console.log("ok");
