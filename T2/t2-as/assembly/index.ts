@@ -15,8 +15,10 @@ export function mancalaResult(flag: i32, seq: Array<i32>, size: i32): i32 {
       return 30000 + i;
     }
     else {
-      curHole = seq[i] % 10 + (flag - 1) * 7;
+      curHole = seq[i] % 10 + (curTurn - 1) * 7;
       curHoleNum = count[curHole];
+      //const s :String = curHoleNum.toString();
+      //console.log(s)
       count[curHole] = 0;
       for (let j = 0; j < curHoleNum; j++) {
         distriHole = (curHole + j) % 14 + 1;
@@ -24,9 +26,7 @@ export function mancalaResult(flag: i32, seq: Array<i32>, size: i32): i32 {
         if (distriHole == 14 && curTurn == 1 || distriHole == 7 && curTurn == 2) { 
           distriHole = distriHole % 14 + 1;
         }
-        else {
-          count[distriHole]++;
-        }
+        count[distriHole]++;
       }
       // 判断最后一颗棋子的位置，指定下一轮操作方
       if (distriHole == 7 && curTurn == 1 || distriHole == 14 && curTurn == 2) { // 落入己方计分池
