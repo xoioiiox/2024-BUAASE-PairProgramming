@@ -17,8 +17,14 @@ export function mancalaOperator(flag: i32, status: Array<i32>): i32 {
   endHole = 5 + (2 - flag) * 7;
   for (let i = beginHole; i <= endHole; i++) {
     if (status[i] == 0 && status[12 - i] != 0) { //todo
-      nextMove = 12 - i;
-      return flag * 10 + nextMove + 1 - (flag - 1) * 7;
+      // 判断对方是否有可能把子落到这个洞
+      for (let j = beginHole; j <= endHole; j++) {
+        if (i == j) continue;
+        if (status[j] == i - j || status[j] == i - j + 13) {
+          nextMove = 12 - i;
+          return flag * 10 + nextMove + 1 - (flag - 1) * 7;
+        }
+      }
     }
   }
   // 我方是否能取子

@@ -1,4 +1,4 @@
 import assert from "assert";
-import { add } from "../build/debug.js";
-assert.strictEqual(add(1, 2), 3);
+import { mancalaOperator } from "../build/debug.js";
+assert.strictEqual(mancalaOperator(1, [5,5,1,6,5,0,2,5,0,6,6,5,0,2,1]), 11);
 console.log("ok");
