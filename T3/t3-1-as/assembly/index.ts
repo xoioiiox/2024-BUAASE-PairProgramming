@@ -25,7 +25,8 @@ export function mancalaBoard(flag: i32, seq: Array<i32>, size: i32): Array<i32> 
         distriHole = (curHole + j) % 14 + 1;
         // 若播到对方的计分池，需要跳过
         if (distriHole == 14 && curTurn == 1 || distriHole == 7 && curTurn == 2) { 
-          distriHole = distriHole % 14 + 1; //todo
+          curHoleNum++;
+          continue;
         }
         count[distriHole]++;
       }
